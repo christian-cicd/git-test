@@ -20,6 +20,13 @@ jobs:
     - name: Setup Pages
       uses: actions/configure-pages@v3
 
+    # ✅ NEW STEP (required workaround)
+    - name: Dummy upload artifact step (to satisfy GitHub dependency)
+      uses: actions/upload-artifact@v3
+      with:
+        name: dummy
+        path: ./site/index.html
+
     - name: Upload site files
       uses: actions/upload-pages-artifact@v2
       with:
